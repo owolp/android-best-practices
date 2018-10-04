@@ -11,7 +11,7 @@ Lições aprendidas por programadores Android na [Futurice](http://www.futurice.
 #### Não escreva o seu próprio cliente de HTTP, utilize as bibliotecas Volley ou OkHttp
 #### Use a biblioteca Jackson para fazer o parse de JSON
 #### Evite o Guava e utilize poucas bibliotecas devido ao *limite máximo de 65 mil métodos*
-#### Use Fragmentos para representar um ecrã UI
+#### Use Fragmentos para representar um ecrã UIƒ
 #### Use Atividades apenas para gerir Fragmentos
 #### As layouts de XML são código, organize-as bem
 #### Use estilos para evitar atributos duplicados nas layouts de XML
@@ -21,7 +21,6 @@ Lições aprendidas por programadores Android na [Futurice](http://www.futurice.
 #### Não faça uma hierarquia muito profunda de ViewGroups
 #### Evite processar WebViews no cliente, e cuidado com fugas
 #### Use o Robolectric para testes unitários, Robotium para testes conetados (UI)
-#### Use o Genymotion como simulador
 #### Use sempre o ProGuard ou DexGuard
 #### Use SharedPreferences para persistência simples, caso contrário use ContentProviders
 
@@ -469,11 +468,9 @@ solo.clickOnText("Edit File Extensions");
 Assert.assertTrue(solo.searchText("rtf"));
 ```
 
-### Simuladores
+### Emuladores
 
-Se está a desenvolver aplicações Android como uma profissão, compre uma licença para o [simulador Genymotion](http://www.genymotion.com/). O simulador Genymotion corre a uma rátio de frames/sec mais rapidamente do que os simuladores AVD. Eles têm ferramentas para _demoing_ a sua aplicação, simulando a qualidade da conexão à rede, posições de GPS, etc. Eles também são ideais para testes conetados. Irá ter acesso a mais (não todos) os diferentes aparelhos, o que irá fazer com que o custo de uma licença Genymotion muito mais acessível do que comprar diferentes aparelhos reais.
-
-Desvantagens são: Os simuladores Genymotion não têm todos os serviços do Google como Google Play Store e Maps. Também poderá ter de testar APIs específicas da Samsung, portanto irá ser necessário ter um aparelho Samsung real.
+A performance do emulador do Android SDK, particularmente a de arquitetura x86, tem melhorado significantemente nos últimos anos e hoje é a mais adequada para a maioria das tarefas de desenvolvimento do dia-a-dia. Contudo, você não deve desconsiderar que sua aplicação vai funcionar realmente em dispositivos reais. Claro, testar todos os possíveis dispositivos não é nada prático ou produtivo, ou seja, foque os seus esforços nos dispositivos que tenham uma grande fatia de mercado e os que sejam mais relevantes para a aplicação que está sendo desenvolvida no momento.
 
 ### Configurações Proguard
 
@@ -518,7 +515,6 @@ De maneira a prevenir o ProGuard de *ofuscar* classes ou membros da classe, adic
 -keepnames class com.futurice.project.MyClass { *; }
 ```
 
-Veja [esta template de configuração ProGuard](https://github.com/futurice/android-best-practices/blob/master/templates/rx-architecture/app/proguard-rules.pro) para alguns exemplos.
 Leia mais em [Proguard](http://proguard.sourceforge.net/#manual/examples.html) para exemplos.
 
 **Cedo no projeto, faça uma compilação de lançamento** para verificar se as regras do ProGuard estão a manter corretamente o que é importante. Além disso, sempre que inclua bibliotecas novas, faça uma compilação de lançamento e teste a apk num aparelho. Não espera até a sua aplicação estar finalmente na versão "1.0" para fazer a compilação de lançamento, poderá encontrar algumas surpresas desagradáveis e pouco tempo para as resolver.
